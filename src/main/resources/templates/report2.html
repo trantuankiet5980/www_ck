@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Search candidate by company name experience with role is ADMINISTRATION</h2>
+<div style="width: 100%; margin: 20px; display: flex;">
+    <form action="report02s" method="get">
+        <input type="text" name="compName" th:value="${compName}" placeholder="Enter company name">
+        <button>Submit</button>
+    </form>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>Full name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Detail info</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="can : ${candidates}">
+        <td th:text="${can.fullName}"></td>
+        <td th:text="${can.email}"></td>
+        <td th:text="${can.phone}"></td>
+        <td>
+            <a th:href="@{|/candidates/${can.id}|}">Show detail info</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

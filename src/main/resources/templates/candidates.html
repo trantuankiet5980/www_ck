@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidates</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>FullName</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="can : ${candidates}">
+            <td th:text="${can.fullName}"></td>
+            <td th:text="${can.email}"></td>
+            <td th:text="${can.phone}"></td>
+            <td>
+                <a th:href="@{|/candidates/${can.id}|}">Show detail info</a>
+            </td>
+            <td>
+                <a th:href="@{|/candidates/delete/${can.id}|}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

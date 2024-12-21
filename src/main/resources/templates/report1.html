@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Candidates with experience >= 5 year</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Full name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Detail info</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="can : ${candidates}">
+        <td th:text="${can.fullName}"></td>
+        <td th:text="${can.email}"></td>
+        <td th:text="${can.phone}"></td>
+        <td>
+            <a th:href="@{|/candidates/${can.id}|}">Show detail info</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

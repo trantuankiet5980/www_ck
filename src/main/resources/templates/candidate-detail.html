@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="width: 1000px; margin: 0 auto; display: flex; flex-direction: column;" th:object="${candidate}">
+    <h2>Candidate detail info</h2>
+    <span><strong>Full name: </strong> [[*{fullName}]]</span>
+    <span><strong>Email: </strong> [[*{email}]]</span>
+    <span><strong>Phone: </strong> [[*{phone}]]</span>
+    <p><strong>Experiences</strong></p>
+    <table>
+        <thead>
+        <tr>
+            <th>Company name</th>
+            <th>From date</th>
+            <th>To date</th>
+            <th>Work description</th>
+            <th>Role</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="exp : *{experiences}">
+            <td th:text="${exp.companyName}"></td>
+            <td th:text="${exp.fromDate}"></td>
+            <td th:text="${exp.toDate}"></td>
+            <td th:text="${exp.workDescription}"></td>
+            <td th:text="${exp.role.toString()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

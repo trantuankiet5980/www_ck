@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Tran Tuan Kiet</title>
+</head>
+<body>
+<a sec:authorize="hasRole('USER')" th:href="@{/candidates}" style="padding: 10px 20px">Candidate</a>
+<a sec:authorize="hasRole('USER')" th:href="@{/candidates/add}" style="padding: 10px 20px">Add Candidate</a>
+<a sec:authorize="hasRole('USER')" th:href="@{/report01s}"  style="padding: 10px 20px">Report01</a>
+<a sec:authorize="hasRole('ADMIN')" th:href="@{/report02s}" style="padding: 10px 20px">Report02</a>
+<a sec:authorize="isAuthenticated()" th:href="@{/login?logout}" style="padding: 10px 20px">Logout</a>
+<a sec:authorize="!isAuthenticated()" th:href="@{/login}" style="padding: 10px 20px">Login</a>
+
+</body>
+</html>
